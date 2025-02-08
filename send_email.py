@@ -16,12 +16,12 @@ dados = pd.read_csv('Mundo9dfp_cia_aberta_DRE_con_2021.csv', sep = ';',
                         usecols= ['DT_REFER', 'DENOM_CIA', 'ESCALA_MOEDA', 'ORDEM_EXERC', 'CD_CONTA', 'DS_CONTA', 'VL_CONTA'])
 
 
-save = dados.to_csv('Dados.csv')
+save = dados.to_csv('data.csv')
 
 email = 'your_email@example.com'
 
 
-with open('senha.txt') as f:
+with open('password_api.txt') as f:
     senha = f.readlines()
     
     f.close()
@@ -32,11 +32,11 @@ msg = EmailMessage()
 msg['Subject'] = 'Enviando e-mail'
 msg['From'] = 'your_email@your_domain.com'
 msg['To'] = 'to_send_email_address'
-msg.set_content(f'here')
+msg.set_content(f'the index.csv:')
 
-with open('Dados.csv', 'rb') as content_file :
+with open('data.csv', 'rb') as content_file :
     content = content_file.read()
-    msg.add_attachment(content, maintype = 'application', subtype = 'csv', filename = 'Dados.csv')
+    msg.add_attachment(content, maintype = 'application', subtype = 'csv', filename = 'data.csv')
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
 
