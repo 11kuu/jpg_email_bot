@@ -1,7 +1,4 @@
-import yfinance as yf
 import pandas as pd
-import matplotlib.pyplot as plt
-import mplcyberpunk
 import os 
 import smtplib
 from email.message import EmailMessage
@@ -15,11 +12,9 @@ dados = pd.read_csv('Mundo9dfp_cia_aberta_DRE_con_2021.csv', sep = ';',
                         index_col= 'DT_REFER',
                         usecols= ['DT_REFER', 'DENOM_CIA', 'ESCALA_MOEDA', 'ORDEM_EXERC', 'CD_CONTA', 'DS_CONTA', 'VL_CONTA'])
 
-
 save = dados.to_csv('data.csv')
 
 email = 'your_email@example.com'
-
 
 with open('password_api.txt') as f:
     senha = f.readlines()
