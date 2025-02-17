@@ -1,10 +1,12 @@
-### 📧 Simple CSV Email Bot  
+### 📧 Banco do Brasil Graph Email Bot
 
-This bot sends a CSV file via email using the Gmail API. The file contains important company data, such as financial metrics or stock values.  
+This bot generates and sends a **JPG image** of a plotted graph related to **Banco do Brasil** data via email using the Gmail API. The graph can display financial trends, stock prices, or other relevant metrics.
 
-**How it works:**  
-1. **CSV File**: Reads or generates a CSV with company data.  
-2. **Email Sending**: Uses the Gmail API to send the file.  
-3. **Basic Setup**: Works with minimal configuration.  
+**How it works:**
 
-The bot is simple but can be adjusted to include custom data, scheduling, or advanced features if needed. 📩📊  
+1. **Graph Generation** : Plots financial data of Banco do Brasil.
+2. **Image Export** : Saves the graph as a JPG file.
+3. **Email Sending** : Uses the Gmail API to send the image.
+4. **Minimal Setup** : Requires basic configuration.
+
+The bot is simple but can be customized for **different data sources, scheduling, or additional email features** if needed. 📩📊
