@@ -2,36 +2,45 @@ import pandas as pd
 import os 
 import smtplib
 from email.message import EmailMessage
+import yfinance as yf
+import matplotlib.pyplot as plt
+import mplcyberpunk
 
 diretorio = os.getcwd()
 os.chdir(diretorio)
+download = yf.download("BBAS3.SA")
+download = download['Close']
+download.dropna()
+download.plot()
 
-dados = pd.read_csv('Mundo9dfp_cia_aberta_DRE_con_2021.csv', sep = ';',
-                        encoding= "ISO-8859-1",
-                        decimal= ',',
-                        index_col= 'DT_REFER',
-                        usecols= ['DT_REFER', 'DENOM_CIA', 'ESCALA_MOEDA', 'ORDEM_EXERC', 'CD_CONTA', 'DS_CONTA', 'VL_CONTA'])
+plt.style.use('cyberpunk')
+plt.plot(download)
+plt.savefig('BRAZIL_BANK.png')
 
-save = dados.to_csv('data.csv')
 
-email = 'your_email@example.com'
+# Email
+send = str(input('enter the email you will send [ to_send_domain@domain.com ] :')).lower()
+receive = str(input('enter the email you will receive [ your_domain@domain.com ] :')).lower()
 
-with open('password_api.txt') as f:
+email = 'your_email@domain.com'
+
+with open('C:/Users/linco/Documents/Visual Studio Projects/csv_email/password.txt') as f:
     senha = f.readlines()
     
     f.close()
 
 senha_do_email = senha[0]
 
+
 msg = EmailMessage()
 msg['Subject'] = 'Enviando e-mail'
-msg['From'] = 'your_email@your_domain.com'
-msg['To'] = 'to_send_email_address'
-msg.set_content(f'the index.csv:')
+msg['From'] = send
+msg['To'] = receive
+msg.set_content(f'Here is the graph plotted from Banco do Brasil :')
 
-with open('data.csv', 'rb') as content_file :
+with open('BRAZIL_BANK.png', 'rb') as content_file :
     content = content_file.read()
-    msg.add_attachment(content, maintype = 'application', subtype = 'csv', filename = 'data.csv')
+    msg.add_attachment(content, maintype = 'application', subtype = 'png', filename = 'BRAZIL_BANK.png')
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
 
