@@ -17,8 +17,6 @@ plt.style.use('cyberpunk')
 plt.plot(download)
 plt.savefig('BRAZIL_BANK.png')
 
-
-# Email
 send = str(input('enter the email you will send [ to_send_domain@domain.com ] :')).lower()
 receive = str(input('enter the email you will receive [ your_domain@domain.com ] :')).lower()
 
@@ -30,7 +28,6 @@ with open('C:/Users/linco/Documents/Visual Studio Projects/csv_email/password.tx
     f.close()
 
 senha_do_email = senha[0]
-
 
 msg = EmailMessage()
 msg['Subject'] = 'Enviando e-mail'
