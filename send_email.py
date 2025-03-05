@@ -17,8 +17,6 @@ plt.style.use('cyberpunk')
 plt.plot(download)
 plt.savefig('BRAZIL_BANK.png')
 
-# Email
-
 send = str(input('enter the email you will send [ to_send_domain@domain.com ] :')).lower()
 receive = str(input('enter the email you will receive [ your_domain@domain.com ] :')).lower()
 
