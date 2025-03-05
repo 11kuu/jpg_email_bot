@@ -1,5 +1,5 @@
 import pandas as pd
-import os 
+import os
 import smtplib
 from email.message import EmailMessage
 import yfinance as yf
@@ -24,7 +24,7 @@ email = 'your_email@domain.com'
 
 with open('C:/Users/linco/Documents/Visual Studio Projects/csv_email/password.txt') as f:
     senha = f.readlines()
-    
+
     f.close()
 
 senha_do_email = senha[0]
@@ -43,4 +43,3 @@ with open('BRAZIL_BANK.png', 'rb') as content_file :
 
         smtp.login(email, senha_do_email)
         smtp.send_message(msg)
-
