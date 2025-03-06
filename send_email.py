@@ -24,7 +24,6 @@ email = 'your_email@domain.com'
 
 with open('C:/Users/linco/Documents/Visual Studio Projects/csv_email/password.txt') as f:
     senha = f.readlines()
-
     f.close()
 
 senha_do_email = senha[0]
